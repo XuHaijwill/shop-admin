@@ -1,0 +1,78 @@
+#配置数据源
+spring:
+  application:
+    name: shop-system
+  datasource:
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.146.132:3306/yshopb2c?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 11111
+
+      # 初始连接数
+      initialSize: 5
+      # 最小连接池数量
+      minIdle: 10
+      # 最大连接池数量
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      maxEvictableIdleTimeMillis: 900000
+      # 配置检测连接是否有效
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      webStatFilter:
+        enabled: true
+      statViewServlet:
+        enabled: true
+        # 设置白名单，不填则允许所有访问
+        allow:
+        url-pattern: /druid/*
+        # 控制台管理用户名和密码
+        login-username: admin
+        login-password: 123456
+      filter:
+        stat:
+          enabled: true
+          # 慢SQL记录
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+  redis:
+    #数据库索引
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password:
+    #连接超时时间
+    timeout: 5000
+  security:
+    user:
+      name: admin
+      password: admin
+
+# 文件存储路径
+file:
+  path: D:\shopApplicationFolder\file\
+  avatar: D:\shopApplicationFolder\avatar\
+  # 文件大小 /M
+  maxSize: 100
+  avatarMaxSize: 5
+
+#是否开启 swagger-ui
+swagger:
+  enabled: true
+  title: shop商城管理后台API
+  serverUrl:
+  version: 1。0

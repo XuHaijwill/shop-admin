@@ -1,0 +1,52 @@
+server:
+  port: 8001
+
+spring:
+  main:
+    allow-circular-references: true
+  freemarker:
+    check-template-location: false
+  profiles:
+    active: dev
+  jackson:
+    time-zone: GMT+8
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+task:
+  pool:
+    # 核心线程池大小
+    core-pool-size: 10
+    # 最大线程数
+    max-pool-size: 30
+    # 活跃时间
+    keep-alive-seconds: 60
+    # 队列容量
+    queue-capacity: 50
+
+logging:
+  level:
+    com.shop: DEBUG
+    org.springframework.web: DEBUG
+    com.github.binarywang.demo.wx.mp: DEBUG
+    me.chanjar.weixin: DEBUG
+
+mybatis-plus:
+  check-config-location: true
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      mapper-locations: classpath*:mapper/**/*Mapper.xml
+
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
