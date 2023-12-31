@@ -1,3 +1,8 @@
 # Allication
 
-http://localhost:8001/druid/login.html
+## Druid监控SQL 
+http://localhost:8002/druid/login.html
+
+## swagger
+http://localhost:8002/doc.html#/documentManager/GlobalParameters-default
+

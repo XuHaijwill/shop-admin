@@ -51,7 +51,7 @@ spring:
             multi-statement-allow: true
   redis:
     #数据库索引
-    database: 1
+    database: 3
     host: 127.0.0.1
     port: 6379
     password:
@@ -75,4 +75,4 @@ swagger:
   enabled: true
   title: shop商城管理后台API
   serverUrl:
-  version: 1。0
+  version: 1.0
