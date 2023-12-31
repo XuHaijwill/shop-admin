@@ -2,6 +2,7 @@ package com.shop.admin;
 
 import com.shop.common.annotation.AnonymousAccess;
 import com.shop.common.utils.SpringContextHolder;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAsync
 @RestController
 @SpringBootApplication
-
+@MapperScan(basePackages ={"com.shop.admin.modules.mapper", "com.shop.config"})
 public class ApplicationRun {
 
     public static void main(String[] args) {
